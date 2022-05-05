@@ -1,18 +1,18 @@
+maqueen.ltEvent(maqueen.Patrol1.PatrolRight, maqueen.Voltage.High, function () {
+    maqueen.motorStop(maqueen.Motors.All)
+    basic.pause(1000)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, 185)
+    basic.pause(2000)
+})
+maqueen.ltEvent(maqueen.Patrol1.PatrolLeft, maqueen.Voltage.High, function () {
+    maqueen.motorStop(maqueen.Motors.All)
+    basic.pause(1000)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, 185)
+    basic.pause(2000)
+})
 let strip = neopixel.create(DigitalPin.P15, 4, NeoPixelMode.RGB_RGB)
 basic.forever(function () {
     maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 100)
-    if (maqueen.Ultrasonic(PingUnit.Centimeters) < 15) {
-        maqueen.motorStop(maqueen.Motors.All)
-        basic.pause(1000)
-        maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, 185)
-        basic.pause(2000)
-    }
-    if (maqueen.Ultrasonic(PingUnit.Centimeters) < 15) {
-        maqueen.motorStop(maqueen.Motors.All)
-        basic.pause(1000)
-        maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, 185)
-        basic.pause(2000)
-    }
 })
 basic.forever(function () {
     strip.showColor(neopixel.colors(NeoPixelColors.Red))
